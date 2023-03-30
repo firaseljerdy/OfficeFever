@@ -69,25 +69,29 @@ public class CharacterController : MonoBehaviour
         Vector3 direction = (targetPosition - transform.position).normalized;
         direction.y = 0;
 
-        float distance = Vector3.Distance(transform.position, targetPosition);
+        RaycastHit hitInfo;
+        bool hasClearPath = !Physics.Raycast(transform.position, direction, out hitInfo, Vector3.Distance(transform.position, targetPosition), groundLayer);
 
-        if (direction != Vector3.zero)
+        if (hasClearPath)
         {
-            Quaternion targetRotation = Quaternion.LookRotation(direction, Vector3.up);
-            rb.MoveRotation(Quaternion.Slerp(rb.rotation, targetRotation, rotationSpeed * Time.deltaTime));
-        }
+            float distance = Vector3.Distance(transform.position, targetPosition);
 
-        if (distance > 0.1f)
-        {
-            float step = movementSpeed * Time.deltaTime;
-            transform.position = Vector3.MoveTowards(transform.position, targetPosition, step);
-            animator.SetFloat("Speed", 1);
-        }
-        else
-        {
-            animator.SetFloat("Speed", 0);
+            if (direction != Vector3.zero && distance > 0.1f)
+            {
+                Quaternion targetRotation = Quaternion.LookRotation(direction, Vector3.up);
+                rb.MoveRotation(Quaternion.Slerp(rb.rotation, targetRotation, rotationSpeed * Time.deltaTime));
+            }
+
+            if (distance > 0.1f)
+            {
+                float step = movementSpeed * Time.deltaTime;
+                transform.position = Vector3.MoveTowards(transform.position, targetPosition, step);
+                animator.SetFloat("Speed", 1);
+            }
+            else
+            {
+                animator.SetFloat("Speed", 0);
+            }
         }
     }
-
-
 }
