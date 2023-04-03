@@ -6,6 +6,8 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private float rotationSpeed = 150.0f;
     [SerializeField] private Camera mainCamera;
     [SerializeField] private LayerMask groundLayer;
+    private PaperCollector paperCollector;
+
 
     private Rigidbody rb;
     private Animator animator;
@@ -14,6 +16,7 @@ public class CharacterController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         animator = GetComponentInChildren<Animator>();
+        paperCollector = GetComponent<PaperCollector>();
 
         if (mainCamera == null)
         {
@@ -27,7 +30,7 @@ public class CharacterController : MonoBehaviour
         bool inputDetected = false;
 
         // Mouse input
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && !paperCollector.IsCollecting)
         {
             Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
