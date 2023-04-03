@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - Paper
+  - Money
   layers:
   - Default
   - TransparentFX

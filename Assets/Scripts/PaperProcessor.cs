@@ -8,8 +8,11 @@ public class PaperProcessor : MonoBehaviour
     public GameObject moneyPrefab;
     public float processTime = 1.0f;
     public float lerpSpeed = 1.0f;
+    public float moneyHeightOffset = 0.1f;
+
 
     private int currentMoneySpawnIndex = 0;
+
 
     private void Update()
     {
@@ -54,4 +57,17 @@ public class PaperProcessor : MonoBehaviour
             yield return null;
         }
     }
+
+    private void SpawnMoney()
+    {
+        int moneySpawnIndex = Random.Range(0, moneySpawnPoints.Length);
+        Transform moneySpawnPoint = moneySpawnPoints[moneySpawnIndex];
+
+        Vector3 spawnPosition = moneySpawnPoint.position;
+        spawnPosition.y += moneySpawnPoint.childCount * moneyHeightOffset;
+
+        GameObject spawnedMoney = Instantiate(moneyPrefab, spawnPosition, moneySpawnPoint.rotation);
+        spawnedMoney.transform.SetParent(moneySpawnPoint);
+    }
+
 }
