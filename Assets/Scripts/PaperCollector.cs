@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using UnityEngine;
 
@@ -48,6 +47,9 @@ public class PaperCollector : MonoBehaviour
                 inRange[i] = false;
             }
         }
+
+        PrinterManager.Instance.PapersCollected();
+
         if (paperSetter.CheckDistance(transform.position) && paperStackTarget.childCount > 0)
         {
             paperSetter.SetPapers(paperStackTarget);

@@ -20,6 +20,7 @@ public class PaperPrinter : MonoBehaviour
     {
         currentStackHeight = new int[printLocations.Length];
         StartCoroutine(PrintPapers());
+        PrinterManager.Instance.OnPapersCollected += ResetStackHeight;
     }
 
     private IEnumerator PrintPapers()
@@ -75,6 +76,18 @@ public class PaperPrinter : MonoBehaviour
         if (paperCollider != null)
         {
             paperCollider.enabled = true;
+        }
+    }
+    public void ResetStackHeight()
+    {
+        currentStackHeight[currentStackIndex] = 0;
+    }
+
+    private void OnDestroy()
+    {
+        if (PrinterManager.Instance != null)
+        {
+            PrinterManager.Instance.OnPapersCollected -= ResetStackHeight;
         }
     }
 }

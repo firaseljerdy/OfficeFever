@@ -282,10 +282,10 @@ MonoBehaviour:
   - {fileID: 5212128817740104957}
   paperPrefab: {fileID: 6221987390190958207, guid: 6e77f6910e94e624ba9730f225b29ef1,
     type: 3}
-  printInterval: 0.8
+  printInterval: 0.3
   lerpSpeed: 0.1
   positionVariation: {x: 0.01, y: 0.01}
-  rotationVariation: {x: 3, y: 3}
+  rotationVariation: {x: 1, y: 1}
   printerExitPoint: {fileID: 5212128817374126736}
 --- !u!1 &5212128816050383693
 GameObject:

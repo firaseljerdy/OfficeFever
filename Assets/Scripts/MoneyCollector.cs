@@ -30,13 +30,22 @@ public class MoneyCollector : MonoBehaviour
         for (int i = 0; i < moneyObjects.Count; i++)
         {
             GameObject money = moneyObjects[i];
-            float distanceToMoney = Vector3.Distance(transform.position, money.transform.position);
-            if (distanceToMoney <= collectionDistance)
+            if (money != null)
             {
-                StartCoroutine(CollectMoney(money));
+                float distanceToMoney = Vector3.Distance(transform.position, money.transform.position);
+                if (distanceToMoney <= collectionDistance && money != null)
+                {
+                    StartCoroutine(CollectMoney(money));
+                    moneyObjects.RemoveAt(i);
+                    i--;
+                }
+            }
+            else
+            {
                 moneyObjects.RemoveAt(i);
                 i--;
             }
+            
         }
     }
 
@@ -46,7 +55,7 @@ public class MoneyCollector : MonoBehaviour
         Vector3 startPosition = money.transform.position;
         Quaternion startRotation = money.transform.rotation;
 
-        while (Time.time - startTime < collectionSpeed)
+        while (money != null && Time.time - startTime < collectionSpeed)
         {
             float t = (Time.time - startTime) / collectionSpeed;
             money.transform.position = Vector3.Lerp(startPosition, transform.position, t);
@@ -54,6 +63,9 @@ public class MoneyCollector : MonoBehaviour
             yield return null;
         }
 
-        Destroy(money);
+        if (money != null)
+        {
+            Destroy(money);
+        }
     }
 }

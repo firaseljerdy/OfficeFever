@@ -290,8 +290,82 @@ Transform:
   m_Children:
   - {fileID: 2070573697}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &949974447
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5308258840026902100, guid: 1217e516c28e2e9428804ecb44cb6659,
+        type: 3}
+      propertyPath: m_Name
+      value: Desk (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5308258840026902103, guid: 1217e516c28e2e9428804ecb44cb6659,
+        type: 3}
+      propertyPath: moneyHeightOffset
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5308258840026902104, guid: 1217e516c28e2e9428804ecb44cb6659,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5308258840026902104, guid: 1217e516c28e2e9428804ecb44cb6659,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -8.463441
+      objectReference: {fileID: 0}
+    - target: {fileID: 5308258840026902104, guid: 1217e516c28e2e9428804ecb44cb6659,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5308258840026902104, guid: 1217e516c28e2e9428804ecb44cb6659,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.95163
+      objectReference: {fileID: 0}
+    - target: {fileID: 5308258840026902104, guid: 1217e516c28e2e9428804ecb44cb6659,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5308258840026902104, guid: 1217e516c28e2e9428804ecb44cb6659,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5308258840026902104, guid: 1217e516c28e2e9428804ecb44cb6659,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5308258840026902104, guid: 1217e516c28e2e9428804ecb44cb6659,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5308258840026902104, guid: 1217e516c28e2e9428804ecb44cb6659,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5308258840026902104, guid: 1217e516c28e2e9428804ecb44cb6659,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -180
+      objectReference: {fileID: 0}
+    - target: {fileID: 5308258840026902104, guid: 1217e516c28e2e9428804ecb44cb6659,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1217e516c28e2e9428804ecb44cb6659, type: 3}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -375,7 +449,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 36.382, y: 0, z: 0}
 --- !u!114 &963194229
 MonoBehaviour:
@@ -428,6 +502,82 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5212128817095813891}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1921293584
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1921293585}
+  - component: {fileID: 1921293586}
+  m_Layer: 0
+  m_Name: Printer Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1921293585
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1921293584}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1973871036}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1921293586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1921293584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02f443ba823f2c041bbd1764b9037fe6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1973871035
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1973871036}
+  m_Layer: 0
+  m_Name: Managers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1973871036
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1973871035}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -18.067148, y: 1.1148074, z: 4.6509113}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1921293585}
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2070573693
 GameObject:
   m_ObjectHideFlags: 0
@@ -520,7 +670,7 @@ Transform:
   m_GameObject: {fileID: 2070573693}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 10.886381, y: -6.255987, z: 5.3649416}
-  m_LocalScale: {x: 10, y: 1, z: 10}
+  m_LocalScale: {x: 5.0502996, y: 0.50503, z: 5.0502996}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 839172218}
@@ -1569,7 +1719,7 @@ Transform:
   - {fileID: 3846218651812755274}
   - {fileID: 264044749}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &5158348657570525963
 Transform:
@@ -1614,10 +1764,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: Printer
       objectReference: {fileID: 0}
+    - target: {fileID: 5212128815923338152, guid: d40f2b3d121d53c449c8278f7fa0b33f,
+        type: 3}
+      propertyPath: printInterval
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 5212128815923338153, guid: d40f2b3d121d53c449c8278f7fa0b33f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5212128815923338153, guid: d40f2b3d121d53c449c8278f7fa0b33f,
         type: 3}
@@ -1785,10 +1940,10 @@ MonoBehaviour:
   - {fileID: 980119550}
   handTarget: {fileID: 264044749}
   collectionDistance: 4
-  suctionForce: 8
+  suctionForce: 12
   positionVariation: {x: 0.05, y: 0.05}
   rotationVariation: {x: 5, y: 5}
-  collectionSpeed: 12
+  collectionSpeed: 5
   handOffset: {x: 0, y: 0, z: 0}
   rotationSpeed: 5
   paperStackTarget: {fileID: 264044749}
@@ -1808,7 +1963,7 @@ MonoBehaviour:
   destinationDesk: {fileID: 2107881745669291736}
   paperStackTarget: {fileID: 264044749}
   settingDistance: 2
-  lerpSpeed: 0.1
+  lerpSpeed: 0.05
 --- !u!114 &5232842266182554094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1822,9 +1977,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moneyTag: Money
-  collectionDistance: 1.5
-  collectionSpeed: 0.5
-  rotationSpeed: 5
+  collectionDistance: 0.8
+  collectionSpeed: 0.1
+  rotationSpeed: 7
 --- !u!1 &5245130841765660037
 GameObject:
   m_ObjectHideFlags: 0
@@ -2058,6 +2213,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Desk
+      objectReference: {fileID: 0}
+    - target: {fileID: 5308258840026902103, guid: 1217e516c28e2e9428804ecb44cb6659,
+        type: 3}
+      propertyPath: lerpSpeed
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5308258840026902103, guid: 1217e516c28e2e9428804ecb44cb6659,
+        type: 3}
+      propertyPath: moneyHeightOffset
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5308258840026902104, guid: 1217e516c28e2e9428804ecb44cb6659,
         type: 3}

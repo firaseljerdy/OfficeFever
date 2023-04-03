@@ -10,9 +10,7 @@ public class PaperProcessor : MonoBehaviour
     public float lerpSpeed = 1.0f;
     public float moneyHeightOffset = 0.1f;
 
-
     private int currentMoneySpawnIndex = 0;
-
 
     private void Update()
     {
@@ -33,15 +31,22 @@ public class PaperProcessor : MonoBehaviour
         Destroy(destinationDesk.GetChild(0).gameObject);
 
         // Instantiate money and set its initial position
-        GameObject money = Instantiate(moneyPrefab);
-        money.transform.position = destinationDesk.position;
-
-        // Start the coroutine to move the money to the designated spawn point
-        StartCoroutine(MoveMoneyToSpawnPoint(money.transform, moneySpawnPoints[currentMoneySpawnIndex]));
+        SpawnMoney();
 
         // Update the index for the next spawn point
         currentMoneySpawnIndex = (currentMoneySpawnIndex + 1) % moneySpawnPoints.Length;
     }
+
+    private void SpawnMoney()
+    {
+        Transform moneySpawnPoint = moneySpawnPoints[currentMoneySpawnIndex];
+        Vector3 spawnPosition = moneySpawnPoint.position;
+        spawnPosition.y += moneySpawnPoint.childCount * moneyHeightOffset;
+
+        GameObject spawnedMoney = Instantiate(moneyPrefab, spawnPosition, moneySpawnPoint.rotation);
+        spawnedMoney.transform.SetParent(moneySpawnPoint);
+    }
+
 
     private IEnumerator MoveMoneyToSpawnPoint(Transform moneyTransform, Transform targetSpawnPoint)
     {
@@ -49,25 +54,22 @@ public class PaperProcessor : MonoBehaviour
         Vector3 startPosition = moneyTransform.position;
         Quaternion startRotation = moneyTransform.rotation;
 
+        Vector3 targetPosition = targetSpawnPoint.position;
+        targetPosition.y += targetSpawnPoint.childCount * moneyHeightOffset;
+
         while (Time.time - startTime < lerpSpeed)
         {
+            if (moneyTransform == null || targetSpawnPoint == null)
+            {
+                yield break;
+            }
             float t = (Time.time - startTime) / lerpSpeed;
-            moneyTransform.position = Vector3.Lerp(startPosition, targetSpawnPoint.position, t);
+            moneyTransform.position = Vector3.Lerp(startPosition, targetPosition, t);
             moneyTransform.rotation = Quaternion.Lerp(startRotation, targetSpawnPoint.rotation, t);
             yield return null;
         }
-    }
 
-    private void SpawnMoney()
-    {
-        int moneySpawnIndex = Random.Range(0, moneySpawnPoints.Length);
-        Transform moneySpawnPoint = moneySpawnPoints[moneySpawnIndex];
-
-        Vector3 spawnPosition = moneySpawnPoint.position;
-        spawnPosition.y += moneySpawnPoint.childCount * moneyHeightOffset;
-
-        GameObject spawnedMoney = Instantiate(moneyPrefab, spawnPosition, moneySpawnPoint.rotation);
-        spawnedMoney.transform.SetParent(moneySpawnPoint);
+        moneyTransform.SetParent(targetSpawnPoint);
     }
 
 }
