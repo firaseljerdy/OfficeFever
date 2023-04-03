@@ -16,7 +16,7 @@ public class PaperCollector : MonoBehaviour
     public Vector3 handOffset;
     public float rotationSpeed = 5.0f;
     public Transform paperStackTarget;
-
+    public PaperSetter paperSetter;
 
     private int paperCount;
     private bool[] coroutineStarted;
@@ -48,6 +48,11 @@ public class PaperCollector : MonoBehaviour
                 inRange[i] = false;
             }
         }
+        if (paperSetter.CheckDistance(transform.position) && paperStackTarget.childCount > 0)
+        {
+            paperSetter.SetPapers(paperStackTarget);
+        }
+
     }
 
     private float HorizontalDistance(Vector3 a, Vector3 b)
@@ -67,6 +72,7 @@ public class PaperCollector : MonoBehaviour
             if (child.gameObject.CompareTag("Paper"))
             {
                 allPapers.Add(child);
+                child.SetParent(null);
             }
         }
 
