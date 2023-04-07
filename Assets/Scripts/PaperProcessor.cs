@@ -1,3 +1,14 @@
+/*
+ The PaperProcessor script handles the paper processing and money generation mechanics.
+ In the Update method, the script checks if there is any paper on the destination desk and starts a coroutine (ProcessPaperRoutine) to process the paper if needed.
+ The ProcessPaper method removes the first paper from the desk, returning it to the PaperPool, and then instantiates money using the MoneyPool system.
+
+ The spawned money's rotation is set using a Quaternion.Euler method to achieve the desired rotation.
+ A coroutine (MoveMoneyToSpawnPoint) is initiated to move and rotate the money object to the designated spawn point on the desk. 
+ The money object's position and rotation are interpolated using Vector3.Lerp and Quaternion.Slerp, respectively.
+ */
+
+
 using System.Collections;
 using UnityEngine;
 

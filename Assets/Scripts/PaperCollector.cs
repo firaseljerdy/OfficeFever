@@ -1,3 +1,13 @@
+/*
+ The PaperCollector script manages the paper collection process. 
+ OnTriggerEnter and OnTriggerExit methods are used to detect when the character is near a paper stack. When the character is close enough,
+ the stack's paper is collected, and a coroutine is initiated to animate the paper collection process.
+ The PaperPool script manages the paper object pooling system to optimize performance.
+ It uses a Queue to store available paper objects and instantiates new ones if needed.
+ */
+
+
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

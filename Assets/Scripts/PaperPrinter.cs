@@ -1,3 +1,15 @@
+/*
+ * The PaperPrinter script handles the printing of paper objects at different print locations, pooling, and reusing paper objects for optimization.
+ * Variables:
+ * printLocations: An array of Transforms representing the printing locations.
+ * paperPrefab: The GameObject representing the paper prefab.
+ * printInterval: The time interval between consecutive paper printings.
+ * lerpSpeed: The speed of Lerp used to move the paper to the target location.
+ * positionVariation: A Vector2 representing the random position variation on the x and y-axis.
+ * rotationVariation: A Vector2 representing the random rotation variation on the x and z-axis.
+ * printerExitPoint: A Transform representing the exit point from where the papers are printed.
+ */
+
 using System.Collections;
 using UnityEngine;
 

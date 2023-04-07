@@ -1,3 +1,9 @@
+/*
+ * The FollowCamera script smoothly follows a target Transform (character) while maintaining a specified offset.
+ * In the LateUpdate method, the script calculates the desired position of the camera by adding the offset to the target's position.
+ * The camera's position is then smoothly interpolated using Vector3.Lerp, with the camera looking at the target.
+ */
+
 using UnityEngine;
 
 public class FollowCamera : MonoBehaviour

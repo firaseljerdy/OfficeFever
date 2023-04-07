@@ -1,3 +1,11 @@
+/*
+ * The PaperSetter script is responsible for moving papers from the paperStackTarget Transform to the destinationDesk Transform.
+ * The CheckDistance method calculates the distance between the player and the destination desk to determine if the player is close enough to start setting papers.
+ * The Update method checks if the character is close enough and initiates the SetPapersOnDesk coroutine.
+ * The coroutine iterates through all child objects of paperStackTarget,
+ * moving them to the destination desk one by one using Vector3.Lerp for position and Quaternion.Lerp for rotation.
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

@@ -1,3 +1,10 @@
+/*
+ * The MoneyPool script manages the money object pooling system to optimize performance,
+ * similar to the PaperPool system. It uses a Queue to store available money objects and instantiates new ones if needed.
+ * The GetMoney and ReturnMoney methods handle the retrieval and return of money objects in the pool.
+ */
+
+
 using System.Collections.Generic;
 using UnityEngine;
 

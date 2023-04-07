@@ -1,3 +1,18 @@
+/*
+ * The input handling allows the player to control the
+ * character using touch or mouse input. Raycasting is used to detect the target position on the ground based on the input.
+ * The script checks for mouse input if the character is not collecting paper and touch input if any touch events are present.
+ * The target position is set based on the RaycastHit.point.
+ * 
+ * 
+ * The MoveAndRotate function calculates the direction towards the target position,
+ * ensuring the character's y-axis remains unchanged.
+ * A raycast is performed to check if there is a clear path towards the target position,
+ * ignoring any obstacles on the ground layer. If a clear path exists,
+ * the character moves and rotates towards the target position using Rigidbody.MoveRotation and Vector3.MoveTowards methods,
+ * respectively. The character's Animator component sets the "Speed" parameter based on the movement state.
+ */
+
 using UnityEngine;
 
 public class CharacterController : MonoBehaviour
@@ -37,6 +52,7 @@ public class CharacterController : MonoBehaviour
     {
         Vector3 targetPosition = Vector3.zero;
         bool inputDetected = false;
+        bool isMoving = false;
 
         // Check for mouse input if the character is not collecting paper
         if (Input.GetMouseButton(0) && !paperCollector.IsCollecting)
@@ -73,13 +89,15 @@ public class CharacterController : MonoBehaviour
         }
         else
         {
-            animator.SetFloat("Speed", 0);
+            animator.SetFloat("Speed", isMoving ? 1 : 0);
         }
     }
 
     // Move and rotate the character towards the target position
-    private void MoveAndRotate(Vector3 targetPosition)
+    private bool MoveAndRotate(Vector3 targetPosition)
     {
+        bool isMoving = false;
+
         // Calculate the direction towards the target position
         Vector3 direction = (targetPosition - transform.position).normalized;
         direction.y = 0;
@@ -105,11 +123,10 @@ public class CharacterController : MonoBehaviour
                 float step = movementSpeed * Time.deltaTime;
                 transform.position = Vector3.MoveTowards(transform.position, targetPosition, step);
                 animator.SetFloat("Speed", 1);
+                isMoving = true;
             }
-            else
-            {
-                animator.SetFloat("Speed", 0);
-            }
+         
         }
+        return isMoving;
     }
 }
