@@ -27,7 +27,10 @@ public class PaperPrinter : MonoBehaviour
     {
         while (true)
         {
-            GameObject paper = Instantiate(paperPrefab, transform.position, Quaternion.identity);
+            GameObject paper = PaperPool.Instance.GetPaper();
+            paper.transform.position = transform.position;
+            paper.transform.rotation = Quaternion.identity;
+
             StartCoroutine(LerpPaperToLocation(paper, printLocations[currentStackIndex]));
 
             currentStackHeight[currentStackIndex]++;

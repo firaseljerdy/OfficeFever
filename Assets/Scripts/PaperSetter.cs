@@ -77,6 +77,8 @@ public class PaperSetter : MonoBehaviour
             }
 
             paper.SetParent(destinationDesk);
+            Debug.Log("Paper added to destinationDesk. Total papers: " + destinationDesk.childCount);
+
         }
 
         isSetting = false;
